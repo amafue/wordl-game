@@ -1,0 +1,17 @@
+.row{
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(5, minmax(10px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.item{
+    padding: 40px;
+    border-style: solid;
+    border-color: rgb(202, 199, 199);
+}
+
+h1{
+    text-align: center;
+}
