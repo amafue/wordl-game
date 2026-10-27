@@ -1,7 +1,6 @@
 .row{
     display: flex;
     justify-content: center;
-    grid-template-columns: repeat(5);
     gap: 10px;
     margin-top: 15px;
 }
@@ -10,11 +9,33 @@
     text-align: center;
     border-style: solid;
     border-color: rgb(202, 199, 199);
-    width: 115px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
 }
 
 h1{
     text-align: center;
     color: green;
+}
+
+.used-letter{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+
+.letter{
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgb(202, 199, 199);
+    background-color: rgb(202, 199, 199);
+    width: 50px;
+    height: 60px;
+    box-sizing: border-box;
 }
