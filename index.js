@@ -37,21 +37,37 @@ rows.forEach((row, rowIndex)=>{
                 if (input.value === input.dataset.answer) {
                     input.style.backgroundColor = "lightgreen";
                     input.style.borderColor = "lightgreen";
-                    usedLetter.forEach((letter)=>{
-                        if (letter.textContent===input.value){
-                            letter.style.backgroundColor = "lightgreen";
-                            letter.style.borderColor = "lightgreen";
-                        }
-                    })
-                } else{
+                } else if (Array.from(inputs).some(otherInput =>
+                    otherInput.dataset.answer === input.value
+                )){
+                    input.style.backgroundColor = "yellow";
+                    input.style.borderColor = "yellow";
+                    
+                }else{
                     input.style.backgroundColor = "rgb(202, 199, 199)";
-                    usedLetter.forEach((letter)=>{
+                }
+
+                usedLetter.forEach((letter)=>{
                         if (letter.textContent===input.value){
-                            letter.style.backgroundColor = "grey";
-                            letter.style.borderColor = "grey";
+                            if (input.style.backgroundColor === "lightgreen") {
+                                letter.style.backgroundColor = "lightgreen";
+                                letter.style.borderColor = "lightgreen";
+                                letter.dataset.status="green";
+
+                            }else if (input.style.backgroundColor === "yellow" && letter.dataset.status !== "green"){
+                                letter.style.backgroundColor = "yellow";
+                                letter.style.borderColor = "yellow";
+                                letter.dataset.status="yellow";
+
+                            }else if (letter.dataset.status !== "yellow" && letter.dataset.status !== "green"){
+                                letter.style.backgroundColor = "grey";
+                                letter.style.borderColor = "grey";
+                                letter.dataset.status="grey";
+                            }
+        
                         }
                     })
-                }
+
                 input.readOnly=true;
             });
             if (rowIndex<rows.length-1) {
